@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Encry's Webpage</title>
+  <title>Encry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -14,140 +14,109 @@
   <!-- DISCORD MODAL -->
   <div class="modal-overlay" id="discordModal">
     <div class="modal">
-      <h4>Discord</h4>
-      <p>Search for me on Discord or send a friend request using my username:</p>
+      <h4>Connect</h4>
+      <p>Friend request me using my username:</p>
       <span class="discord-tag">encry0</span>
-      <div class="btn-row">
-        <button class="btn-copy" onclick="copyDiscord()">Copy Username</button>
-        <button class="btn-close" onclick="closeDiscord()">Close</button>
-      </div>
+      <button class="btn-copy" onclick="copyDiscord()">Copy Username</button>
     </div>
   </div>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <nav>
-    <a class="logo" href="#">Encry</a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#originals">Originals</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#originals">Originals</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <main>
 
-    <!-- HERO -->
-    <div class="hero" id="about">
-      <img class="hero-avatar" src="image01.jpg" alt="Encry avatar" />
-      <div class="hero-text">
-        <h1>Encry</h1>
-        <p>I am a Romanian that loves fooling around and programming. I also love reading and discovering new challenges that I can pass.</p>
-        <div class="skills">
-          <span class="skill-pill">Luau</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">Lua</span>
-          <span class="skill-pill">Rust</span>
-          <span class="skill-pill">TypeScript</span>
-          <span class="skill-pill">HTML / CSS</span>
-        </div>
-      </div>
-    </div>
+    <!-- HERO SECTION -->
+    <section class="hero reveal" id="about">
+      <img class="hero-avatar" src="assets/images/image01.jpg" alt="Encry" />
+      <h1>Encry</h1>
+      <p class="tagline">Programmer &bull; Luau, Python, Lua, Rust, TypeScript</p>
+      <p>I am a Romanian that loves fooling around and programming. I also love reading and discovering new challenges that I can pass.</p>
+    </section>
 
-    <!-- CURRENT PROJECTS -->
+    <!-- PROJECTS SECTION -->
     <section id="projects">
-      <h2 class="section-title">Current Projects</h2>
-
-      <p class="sub-title">Games</p>
+      <h2 class="section-title reveal">Current Projects</h2>
 
       <!-- Atrior Morte -->
-      <div class="card">
-        <img class="card-img" src="image02.jpg" alt="Atrior Morte" />
+      <div class="card reveal">
+        <img class="card-img" src="assets/images/image02.jpg" alt="Atrior Morte" />
         <h3>Atrior Morte</h3>
-        <p>Atrior Morte is a project that originated from @Artseb. It is supposed to be a story game about a Romanian detective that finds out about some dark secret their town has...</p>
+        <p>A detective story game about secrets hidden in a Romanian town.</p>
         <div class="meta">
-          ArtSeb &mdash; VA, Programmer, Graphic Design, Story<br>
-          Encry &mdash; VA, Programmer, Builder<br>
-          NowGoYou &mdash; VA<br>
-          MrMouthless &mdash; Sound Designer
+          <strong>Team:</strong> ArtSeb, Encry, NowGoYou, MrMouthless
         </div>
-        <span class="badge badge-pending">Not released yet</span>
       </div>
 
       <!-- Refraction -->
-      <div class="card">
+      <div class="card reveal">
         <h3>Refraction</h3>
-        <p>Refraction is a project owned by @Rabbitz. It's an asymmetrical horror game, but with its own twist and quirks.</p>
+        <p>An asymmetrical horror game with unique twists and quirks.</p>
         <div class="meta">
-          Rabbitz &mdash; Owner &nbsp;|&nbsp; ArtSeb &mdash; Programmer &nbsp;|&nbsp; Encry &mdash; Programmer<br>
-          Brush &mdash; Animator &nbsp;|&nbsp; Anti &mdash; Map Maker &nbsp;|&nbsp; JustMary &mdash; Artist &nbsp;|&nbsp; Whadacc &mdash; VFX Artist
+          <strong>Team:</strong> Rabbitz, ArtSeb, Encry, Brush, Anti, JustMary, Whadacc
         </div>
-        <span class="badge badge-pending">Not released yet</span>
       </div>
-
-      <p class="sub-title">Applications</p>
 
       <!-- LumiChat -->
-      <div class="card">
-        <img class="card-img" src="image03.jpg" alt="LumiChat - No servers. Just send." />
+      <div class="card reveal">
+        <img class="card-img" src="assets/images/image03.jpg" alt="LumiChat" />
         <h3>LumiChat</h3>
-        <p>LumiChat is a privacy-focused chat app that combines the best of peer-to-peer messaging with lightweight cloud services for authentication and temporary attachment hosting. Your conversations stay between you and your friends &mdash; we never store your messages.</p>
-        <div class="meta">Credits: Encry, ArtSeb</div>
-        <span class="badge badge-pending">Not released yet</span>
+        <p>A privacy-focused P2P chat application that doesn't store your data.</p>
+        <div class="meta">
+          <strong>Team:</strong> Encry, ArtSeb
+        </div>
       </div>
-
     </section>
 
-    <!-- ORIGINAL CREATIONS -->
+    <!-- ORIGINALS SECTION -->
     <section id="originals">
-      <h2 class="section-title">Original Creations</h2>
+      <h2 class="section-title reveal">Original Creations</h2>
+      <div class="originals-grid">
+        
+        <a class="original-btn reveal" href="#" target="_blank">
+          Lost Signal
+          <span>Game</span>
+        </a>
 
-      <!-- Lost Signal -->
-      <div class="card original-card">
-        <h3>Lost Signal</h3>
-        <span class="badge badge-original">Original &bull; Game</span>
-        <p style="margin-top:0.8rem;">Your objective is to obtain lore about what happened in the whole place. You can party up with up to 4 other players (12 events only). You enter a tube-like system, usually inside a facility &mdash; the tubes lead you to the main game after a selection menu. Once in, your objective is to collect info from different places while being pursued by monsters.</p>
-        <div class="meta">Credits: Encry (everything)</div>
-        <span class="badge badge-pending">Not released yet</span>
+        <a class="original-btn reveal" href="#" target="_blank">
+          Lumi Chat
+          <span>Application</span>
+        </a>
+
       </div>
-
-      <!-- Lumi Chat -->
-      <div class="card original-card">
-        <h3>Lumi Chat</h3>
-        <span class="badge badge-original">Original &bull; Application</span>
-        <p style="margin-top:0.8rem;">A privacy-focused chat application combining peer-to-peer messaging with lightweight cloud services. No servers storing your messages &mdash; your conversations stay truly private between you and your friends.</p>
-        <div class="meta">Credits: Encry, ArtSeb</div>
-        <span class="badge badge-pending">Not released yet</span>
-      </div>
-
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT SECTION -->
     <section id="contact">
-      <h2 class="section-title">Contact Me</h2>
+      <h2 class="section-title reveal">Contact</h2>
       <div class="contact-grid">
 
-        <a class="contact-btn" href="https://github.com/EncryX" target="_blank">
+        <a class="contact-btn reveal" href="https://github.com/EncryX" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
           GitHub
         </a>
 
-        <button class="contact-btn" onclick="document.getElementById('discordModal').classList.add('active')">
+        <button class="contact-btn reveal" onclick="openDiscord()">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37A19.8 19.8 0 0 0 15.33 3c-.23.4-.5.95-.68 1.38a18.3 18.3 0 0 0-5.3 0A14.3 14.3 0 0 0 8.66 3a19.8 19.8 0 0 0-4.99 1.37C.53 8.83-.32 13.18.1 17.47a19.9 19.9 0 0 0 6.1 3.06 14.9 14.9 0 0 0 1.3-2.1 12.9 12.9 0 0 1-2.04-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.07 0c.16.13.33.26.5.38-.65.38-1.34.71-2.05.98.37.73.8 1.43 1.3 2.1a19.8 19.8 0 0 0 6.1-3.06c.5-5.04-.84-9.37-3.56-13.1zM8.02 14.9c-1.14 0-2.08-1.05-2.08-2.34s.92-2.34 2.08-2.34c1.15 0 2.1 1.05 2.08 2.34 0 1.29-.93 2.34-2.08 2.34zm7.96 0c-1.14 0-2.08-1.05-2.08-2.34s.92-2.34 2.08-2.34c1.15 0 2.1 1.05 2.08 2.34 0 1.29-.92 2.34-2.08 2.34z"/></svg>
           Discord
         </button>
 
-        <a class="contact-btn" href="https://www.roblox.com/users/5172655199/profile" target="_blank">
+        <a class="contact-btn reveal" href="https://www.roblox.com/users/5172655199/profile" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.16 0L0 15.77 15.84 20 20 4.23zm9.4 11.17l-3.28-.88.87-3.28 3.28.88z"/></svg>
           Roblox
         </a>
 
-        <a class="contact-btn" href="https://www.youtube.com/@Encry_" target="_blank">
+        <a class="contact-btn reveal" href="https://www.youtube.com/@Encry_" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
           YouTube
         </a>
 
-        <a class="contact-btn" href="https://x.com/EncryX" target="_blank">
+        <a class="contact-btn reveal" href="https://x.com/EncryX" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.48l-7.6 8.69L23 22h-7l-5.5-7.18L4.18 22H.7l8.13-9.3L1 2h7.18l4.97 6.57zm-1.22 18h1.93L6.9 3.96H4.84z"/></svg>
           Twitter
         </a>
@@ -158,22 +127,41 @@
   </main>
 
   <footer>
-    &copy; 2026 <strong>Encry</strong> &mdash; Owner of <a href="#">Phantom Core Entertainment</a> &amp; Head Developer at <a href="#">Spectral Labs</a>
+    &copy; 2026 Encry &mdash; Head Developer at Spectral Labs
   </footer>
 
   <script>
-    function copyDiscord() {
-      navigator.clipboard.writeText('encry0').then(function() {
-        var btn = document.querySelector('.btn-copy');
-        btn.textContent = 'Copied!';
-        setTimeout(function() { btn.textContent = 'Copy Username'; }, 2000);
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
       });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Discord Modal Functions
+    function openDiscord() {
+      document.getElementById('discordModal').classList.add('active');
     }
+
     function closeDiscord() {
       document.getElementById('discordModal').classList.remove('active');
     }
-    document.getElementById('discordModal').addEventListener('click', function(e) {
-      if (e.target === this) closeDiscord();
+
+    function copyDiscord() {
+      navigator.clipboard.writeText('encry0').then(() => {
+        const btn = document.querySelector('.btn-copy');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy Username'; }, 2000);
+      });
+    }
+
+    // Close modal on click outside
+    document.getElementById('discordModal').addEventListener('click', (e) => {
+      if (e.target.id === 'discordModal') closeDiscord();
     });
   </script>
 
