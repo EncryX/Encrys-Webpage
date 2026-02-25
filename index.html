@@ -7,9 +7,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+
+  <!-- DISCORD MODAL -->
+  <div class="modal-overlay" id="discordModal">
+    <div class="modal">
+      <h4>Discord</h4>
+      <p>Search for me on Discord or send a friend request using my username:</p>
+      <span class="discord-tag">encry0</span>
+      <div class="btn-row">
+        <button class="btn-copy" onclick="copyDiscord()">Copy Username</button>
+        <button class="btn-close" onclick="closeDiscord()">Close</button>
+      </div>
+    </div>
+  </div>
 
   <!-- NAVBAR -->
   <nav>
@@ -26,7 +39,7 @@
 
     <!-- HERO -->
     <div class="hero" id="about">
-      <div class="hero-avatar-placeholder">&#x1F48E;</div>
+      <img class="hero-avatar" src="image01.jpg" alt="Encry avatar" />
       <div class="hero-text">
         <h1>Encry</h1>
         <p class="tagline">Programmer &bull; Luau &bull; Python &bull; Lua &bull; Rust &bull; TypeScript &bull; HTML</p>
@@ -50,6 +63,7 @@
 
       <!-- Atrior Morte -->
       <div class="card">
+        <img class="card-img" src="image02.jpg" alt="Atrior Morte" />
         <h3>Atrior Morte</h3>
         <p>Atrior Morte is a project that originated from @Artseb. It is supposed to be a story game about a Romanian detective that finds out about some dark secret their town has...</p>
         <div class="meta">
@@ -76,6 +90,7 @@
 
       <!-- LumiChat -->
       <div class="card">
+        <img class="card-img" src="image03.jpg" alt="LumiChat - No servers. Just send." />
         <h3>LumiChat</h3>
         <p>LumiChat is a privacy-focused chat app that combines the best of peer-to-peer messaging with lightweight cloud services for authentication and temporary attachment hosting. Your conversations stay between you and your friends &mdash; we never store your messages.</p>
         <div class="meta">Credits: Encry, ArtSeb</div>
@@ -118,29 +133,24 @@
           GitHub
         </a>
 
-        <a class="contact-btn" href="https://discord.com" target="_blank">
+        <button class="contact-btn" onclick="document.getElementById('discordModal').classList.add('active')">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37A19.8 19.8 0 0 0 15.33 3c-.23.4-.5.95-.68 1.38a18.3 18.3 0 0 0-5.3 0A14.3 14.3 0 0 0 8.66 3a19.8 19.8 0 0 0-4.99 1.37C.53 8.83-.32 13.18.1 17.47a19.9 19.9 0 0 0 6.1 3.06 14.9 14.9 0 0 0 1.3-2.1 12.9 12.9 0 0 1-2.04-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.07 0c.16.13.33.26.5.38-.65.38-1.34.71-2.05.98.37.73.8 1.43 1.3 2.1a19.8 19.8 0 0 0 6.1-3.06c.5-5.04-.84-9.37-3.56-13.1zM8.02 14.9c-1.14 0-2.08-1.05-2.08-2.34s.92-2.34 2.08-2.34c1.15 0 2.1 1.05 2.08 2.34 0 1.29-.93 2.34-2.08 2.34zm7.96 0c-1.14 0-2.08-1.05-2.08-2.34s.92-2.34 2.08-2.34c1.15 0 2.1 1.05 2.08 2.34 0 1.29-.92 2.34-2.08 2.34z"/></svg>
           Discord
-        </a>
+        </button>
 
-        <a class="contact-btn" href="https://www.roblox.com" target="_blank">
+        <a class="contact-btn" href="https://www.roblox.com/users/5172655199/profile" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.16 0L0 15.77 15.84 20 20 4.23zm9.4 11.17l-3.28-.88.87-3.28 3.28.88z"/></svg>
           Roblox
         </a>
 
-        <a class="contact-btn" href="https://youtube.com" target="_blank">
+        <a class="contact-btn" href="https://www.youtube.com/@Encry_" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
           YouTube
         </a>
 
-        <a class="contact-btn" href="https://twitter.com" target="_blank">
+        <a class="contact-btn" href="https://x.com/EncryX" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.48l-7.6 8.69L23 22h-7l-5.5-7.18L4.18 22H.7l8.13-9.3L1 2h7.18l4.97 6.57zm-1.22 18h1.93L6.9 3.96H4.84z"/></svg>
           Twitter
-        </a>
-
-        <a class="contact-btn" href="mailto:contact@encryx.dev" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          E-Mail
         </a>
 
       </div>
@@ -151,6 +161,22 @@
   <footer>
     &copy; 2026 <strong>Encry</strong> &mdash; Owner of <a href="#">Phantom Core Entertainment</a> &amp; Head Developer at <a href="#">Spectral Labs</a>
   </footer>
+
+  <script>
+    function copyDiscord() {
+      navigator.clipboard.writeText('encry0').then(function() {
+        var btn = document.querySelector('.btn-copy');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy Username'; }, 2000);
+      });
+    }
+    function closeDiscord() {
+      document.getElementById('discordModal').classList.remove('active');
+    }
+    document.getElementById('discordModal').addEventListener('click', function(e) {
+      if (e.target === this) closeDiscord();
+    });
+  </script>
 
 </body>
 </html>
