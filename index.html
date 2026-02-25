@@ -24,10 +24,10 @@
     html { scroll-behavior: smooth; }
     body {
       background-color: var(--bg);
-      background-image: 
-        linear-gradient(45deg, var(--bg-checker) 25%, transparent 25%), 
-        linear-gradient(-45deg, var(--bg-checker) 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, var(--bg-checker) 75%), 
+      background-image:
+        linear-gradient(45deg, var(--bg-checker) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--bg-checker) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--bg-checker) 75%),
         linear-gradient(-45deg, transparent 75%, var(--bg-checker) 75%);
       background-size: 60px 60px;
       color: var(--text);
@@ -72,7 +72,11 @@
       border: none;
     }
     .btn:hover { background: #eee; transform: scale(1.02); }
-    .btn-secondary { background: transparent; color: var(--text) !important; border: 1px solid var(--border); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text) !important;
+      border: 1px solid var(--border);
+    }
     .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: var(--accent); }
     .creations-nav { display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; }
     .modal {
@@ -106,57 +110,163 @@
       text-align: center;
       cursor: pointer;
     }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+    .tag {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .project-details {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .detail-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .detail-item .label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .detail-item .value {
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .section-btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+    h2 { font-size: 1.6rem; margin-bottom: 8px; }
+    h3 { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; }
+    p { color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .section { padding: 25px; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <header class="animate">
-      <h1>Encry</h1>
-      <p class="subtitle">Developer, Creator, and Scripter</p>
-    </header>
+    <h1 class="animate">Encry</h1>
+    <p class="subtitle animate">Developer, Creator, and Scripter</p>
 
-    <div class="creations-nav animate" style="animation-delay: 0.2s;">
+    <div class="creations-nav animate">
       <a href="#lost-signal" class="btn btn-secondary">Lost Signal</a>
       <a href="#lumi-chat" class="btn btn-secondary">Lumi Chat</a>
     </div>
 
-    <section class="section animate" style="animation-delay: 0.4s;">
+    <!-- About -->
+    <section class="section animate" id="about">
       <h2>About Me</h2>
       <p>I'm a bilingual student-developer focused on Roblox game development with Luau scripting. I specialize in NPC AI, quest systems, and UI design.</p>
     </section>
 
-    <section id="lost-signal" class="section animate" style="animation-delay: 0.6s;">
+    <!-- Lost Signal -->
+    <section class="section animate" id="lost-signal">
       <h2>Lost Signal</h2>
-      <p>One of my original creations. A project focused on immersive storytelling and unique mechanics.</p>
-      <div style="margin-top: 20px;">
-        <a href="https://www.roblox.com/games/your-link" class="btn">Play Lost Signal</a>
+      <h3>A Roblox survival-horror game built around immersive storytelling</h3>
+      <div class="project-tags">
+        <span class="tag">Roblox</span>
+        <span class="tag">Survival Horror</span>
+        <span class="tag">Multiplayer</span>
+        <span class="tag">Luau</span>
+      </div>
+      <p>Explore a mysterious facility and piece together what happened, all while being hunted by gimmicky monsters. Collect lore fragments across layers of increasing difficulty and uncover the truth behind the evil company pulling the strings.</p>
+      <div class="project-details">
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="label">Players</div>
+            <div class="value">Up to 5 (12 in events)</div>
+          </div>
+          <div class="detail-item">
+            <div class="label">Normal Mode Layers</div>
+            <div class="value">80 Layers</div>
+          </div>
+          <div class="detail-item">
+            <div class="label">Gamemodes</div>
+            <div class="value">Easy / Normal / Hard / Endless</div>
+          </div>
+          <div class="detail-item">
+            <div class="label">Max Monsters</div>
+            <div class="value">8 per layer</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-btn-row">
+        <a href="https://www.roblox.com/games/your-link" class="btn" target="_blank">Play Lost Signal</a>
       </div>
     </section>
 
-    <section id="lumi-chat" class="section animate" style="animation-delay: 0.8s;">
+    <!-- Lumi Chat -->
+    <section class="section animate" id="lumi-chat">
       <h2>Lumi Chat</h2>
-      <p>A specialized chat system designed for social interaction and ease of use.</p>
-      <div style="margin-top: 20px;">
-        <a href="https://www.roblox.com/games/your-link" class="btn">Explore Lumi Chat</a>
+      <h3>An open-source, privacy-first chat application</h3>
+      <div class="project-tags">
+        <span class="tag">Open Source</span>
+        <span class="tag">Tauri</span>
+        <span class="tag">Rust</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Privacy</span>
+      </div>
+      <p>A Discord alternative built from the ground up with privacy in mind. No servers, no spyware - only direct client-to-client connections. Sync your data with Google Drive or similar services to make losing it nearly impossible.</p>
+      <div class="project-details">
+        <div class="detail-grid">
+          <div class="detail-item">
+            <div class="label">Backend</div>
+            <div class="value">Rust + Tauri</div>
+          </div>
+          <div class="detail-item">
+            <div class="label">Package Manager</div>
+            <div class="value">Bun</div>
+          </div>
+          <div class="detail-item">
+            <div class="label">Architecture</div>
+            <div class="value">Client-to-Client</div>
+          </div>
+          <div class="detail-item">
+            <div class="label">License</div>
+            <div class="value">Open Source</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-btn-row">
+        <a href="https://www.roblox.com/games/your-link" class="btn" target="_blank">Explore Lumi Chat</a>
       </div>
     </section>
 
-    <section class="section animate" style="animation-delay: 1s;">
+    <!-- Contact -->
+    <section class="section animate" id="contact">
       <h2>Contact Me</h2>
       <div class="contact-grid">
-        <a href="https://x.com/encry0" class="btn btn-secondary">Twitter / X</a>
-        <a href="https://www.youtube.com/@encry0" class="btn btn-secondary">YouTube</a>
-        <a href="https://www.roblox.com/users/489069227/profile" class="btn btn-secondary">Roblox</a>
+        <a href="https://x.com/encry0" class="btn btn-secondary" target="_blank">Twitter / X</a>
+        <a href="https://www.youtube.com/@encry0" class="btn btn-secondary" target="_blank">YouTube</a>
+        <a href="https://www.roblox.com/users/489069227/profile" class="btn btn-secondary" target="_blank">Roblox</a>
         <button class="btn btn-secondary" onclick="openDiscord()">Discord</button>
       </div>
     </section>
   </div>
 
-  <div id="discordModal" class="modal" onclick="closeModal(event)">
+  <!-- Discord Modal -->
+  <div class="modal" id="discordModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
       <h2>Connect on Discord</h2>
-      <p>Click to copy the invite link:</p>
+      <p style="color: var(--text-muted); margin-top: 10px;">Click to copy the invite link:</p>
       <input type="text" value="discord.gg/profile/489069227505090576" readonly onclick="copyInvite(this)">
     </div>
   </div>
@@ -164,12 +274,7 @@
   <script>
     function openDiscord() { document.getElementById('discordModal').classList.add('active'); }
     function closeModal(e) { document.getElementById('discordModal').classList.remove('active'); }
-    function copyInvite(input) {
-      input.select();
-      document.execCommand('copy');
-      alert('Invite link copied to clipboard!');
-    }
+    function copyInvite(input) { input.select(); document.execCommand('copy'); alert('Invite link copied to clipboard!'); }
   </script>
-
 </body>
 </html>
