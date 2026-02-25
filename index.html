@@ -14,61 +14,31 @@
       --text: #ffffff;
       --text-muted: #cccccc;
       --accent: #9d6fff;
-      --bg: #000000;
-      --card-bg: rgba(20, 20, 20, 0.7);
+      --bg: #050505;
+      --bg-checker: #0f0f0f;
+      --card-bg: rgba(20, 20, 20, 0.8);
       --border: rgba(255, 255, 255, 0.1);
     }
     
     body {
       font-family: 'Inter', sans-serif;
-      background: #000;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(45deg, var(--bg-checker) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--bg-checker) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--bg-checker) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--bg-checker) 75%);
+      background-size: 60px 60px;
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
-    }
-    
-    /* Animated star background */
-    #stars, #stars2, #stars3 {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    
-    #stars {
-      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjMuNSIgY3k9IjMuNSIgcj0iMS41IiBmaWxsPSIjZmZmIi8+PC9zdmc+') repeat;
-      animation: animStar 50s linear infinite;
-      opacity: 0.3;
-    }
-    
-    #stars2 {
-      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') repeat;
-      animation: animStar 100s linear infinite;
-      opacity: 0.2;
-    }
-    
-    #stars3 {
-      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSIzIiBmaWxsPSIjZmZmIi8+PC9zdmc+') repeat;
-      animation: animStar 150s linear infinite;
-      opacity: 0.15;
-    }
-    
-    @keyframes animStar {
-      from { transform: translateY(0); }
-      to { transform: translateY(-2000px); }
+      min-height: 100vh;
+      padding: 40px 20px;
     }
     
     .container {
-      position: relative;
-      z-index: 1;
       max-width: 900px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 20px;
     }
     
     /* Hero section */
@@ -130,6 +100,11 @@
       padding: 30px;
       margin-bottom: 30px;
       backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+    
+    .project:hover {
+      transform: translateY(-5px);
     }
     
     .project h4 {
@@ -203,13 +178,6 @@
       transform: translateY(-2px);
     }
     
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    
     @media (max-width: 768px) {
       h1 { font-size: 2.5rem; }
       h2 { font-size: 2rem; }
@@ -218,10 +186,6 @@
   </style>
 </head>
 <body>
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
-  
   <div class="container">
     <!-- Hero -->
     <section class="hero">
@@ -285,10 +249,9 @@
     <div class="contact-grid">
       <a href="https://x.com/encry0" class="contact-btn" target="_blank">Twitter / X</a>
       <a href="https://www.youtube.com/@encry0" class="contact-btn" target="_blank">YouTube</a>
-      <a href="https://www.roblox.com/users/489069227/profile" class="contact-btn" target="_blank">Roblox</a>
-      <a href="https://discord.gg/profile/489069227505090576" class="contact-btn" target="_blank">Discord</a>
+      <a href="https://www.roblox.com/users/4685787084/profile" class="contact-btn" target="_blank">Roblox</a>
+      <a href="https://discord.com/users/489069227505090576" class="contact-btn" target="_blank">Discord</a>
       <a href="https://github.com/EncryX" class="contact-btn" target="_blank">GitHub</a>
-      <a href="mailto:contact@encry.dev" class="contact-btn" target="_blank">Email</a>
     </div>
   </div>
 </body>
