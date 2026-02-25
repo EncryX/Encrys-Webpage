@@ -8,273 +8,288 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== COZY CHECKERBOARD THEME ===== */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     :root {
-      --bg: #050505;
-      --bg-checker: #0f0f0f;
-      --accent: #ffffff;
       --text: #ffffff;
-      --text-muted: #aaaaaa;
-      --card-bg: rgba(20, 20, 20, 0.8);
+      --text-muted: #cccccc;
+      --accent: #9d6fff;
+      --bg: #000000;
+      --card-bg: rgba(20, 20, 20, 0.7);
       --border: rgba(255, 255, 255, 0.1);
-      --radius: 16px;
-      --font: 'Inter', system-ui, sans-serif;
     }
-    html { scroll-behavior: smooth; }
+    
     body {
-      background-color: var(--bg);
-      background-image:
-        linear-gradient(45deg, var(--bg-checker) 25%, transparent 25%),
-        linear-gradient(-45deg, var(--bg-checker) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, var(--bg-checker) 75%),
-        linear-gradient(-45deg, transparent 75%, var(--bg-checker) 75%);
-      background-size: 60px 60px;
+      font-family: 'Inter', sans-serif;
+      background: #000;
       color: var(--text);
-      font-family: var(--font);
       line-height: 1.6;
-      min-height: 100vh;
-      padding: 40px 20px;
+      overflow-x: hidden;
+      position: relative;
     }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .animate { animation: fadeIn 0.8s ease forwards; opacity: 0; }
-    .container { max-width: 800px; width: 100%; margin: 0 auto; }
-    .section {
+    
+    /* Animated star background */
+    #stars, #stars2, #stars3 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    
+    #stars {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSI3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjMuNSIgY3k9IjMuNSIgcj0iMS41IiBmaWxsPSIjZmZmIi8+PC9zdmc+') repeat;
+      animation: animStar 50s linear infinite;
+      opacity: 0.3;
+    }
+    
+    #stars2 {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') repeat;
+      animation: animStar 100s linear infinite;
+      opacity: 0.2;
+    }
+    
+    #stars3 {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSIzIiBmaWxsPSIjZmZmIi8+PC9zdmc+') repeat;
+      animation: animStar 150s linear infinite;
+      opacity: 0.15;
+    }
+    
+    @keyframes animStar {
+      from { transform: translateY(0); }
+      to { transform: translateY(-2000px); }
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin: 0 auto 30px;
+      display: block;
+    }
+    
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(157, 111, 255, 0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 15px;
+    }
+    
+    .bio {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .bio strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 60px 0 40px;
+      color: var(--text);
+    }
+    
+    h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 50px 0 30px;
+      color: var(--text-muted);
+    }
+    
+    /* Project cards */
+    .project {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px;
-      margin-bottom: 40px;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
       backdrop-filter: blur(10px);
-      transition: transform 0.3s ease;
     }
-    .section:hover { transform: translateY(-5px); }
-    h1 { font-size: 3rem; text-align: center; margin-bottom: 10px; }
-    .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 1.2rem; }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
+    
+    .project h4 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--text);
+    }
+    
+    .project img {
       width: 100%;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 25px;
-      background: var(--accent);
-      color: #000 !important;
-      text-decoration: none !important;
       border-radius: 12px;
-      font-weight: 600;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: none;
+      margin-bottom: 20px;
     }
-    .btn:hover { background: #eee; transform: scale(1.02); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text) !important;
-      border: 1px solid var(--border);
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: var(--accent); }
-    .creations-nav { display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; }
-    .modal {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      backdrop-filter: blur(5px);
-    }
-    .modal.active { display: flex; }
-    .modal-content {
-      background: #111;
-      padding: 40px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      text-align: center;
-      max-width: 450px;
-      width: 90%;
-    }
-    .modal-content input {
-      width: 100%;
-      padding: 15px;
-      margin-top: 20px;
-      background: #1a1a1a;
-      border: 1px solid var(--border);
-      color: #fff;
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-    }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
-    .tag {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+    
+    .project p {
       color: var(--text-muted);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
+      margin-bottom: 15px;
+      line-height: 1.7;
     }
-    .project-details {
-      margin-top: 20px;
-      padding-top: 20px;
+    
+    .status {
+      display: inline-block;
+      background: rgba(157, 111, 255, 0.2);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    
+    .credits {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 15px;
+      padding-top: 15px;
       border-top: 1px solid var(--border);
     }
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .detail-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-    }
-    .detail-item .label {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-    .detail-item .value {
+    
+    .credits strong {
       color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 600;
     }
-    .section-btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
-    h2 { font-size: 1.6rem; margin-bottom: 8px; }
-    h3 { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; }
-    p { color: var(--text-muted); margin-bottom: 12px; line-height: 1.7; }
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .section { padding: 25px; }
-      .detail-grid { grid-template-columns: 1fr; }
+    
+    /* Contact grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 700px;
+      margin: 40px auto;
+    }
+    
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .contact-btn:hover {
+      border-color: var(--accent);
+      background: rgba(157, 111, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  
   <div class="container">
-    <h1 class="animate">Encry</h1>
-    <p class="subtitle animate">Developer, Creator, and Scripter</p>
-
-    <div class="creations-nav animate">
-      <a href="#lost-signal" class="btn btn-secondary">Lost Signal</a>
-      <a href="#lumi-chat" class="btn btn-secondary">Lumi Chat</a>
+    <!-- Hero -->
+    <section class="hero">
+      <img src="assets/images/image01.jpg" alt="Encry" class="profile-pic">
+      <h1>ENCRY</h1>
+      <div class="bio">
+        <strong>Programmer | Luau, Python, Lua, Rust, TypeScript, HTML</strong>
+        <p>I am a Romanian that loves fooling around and programming. I also love reading and discovering new challenges that I can pass.</p>
+      </div>
+    </section>
+    
+    <!-- Current Projects -->
+    <h2>Current projects</h2>
+    
+    <!-- Games -->
+    <h3>Games</h3>
+    
+    <div class="project">
+      <h4>Atrior Morte</h4>
+      <img src="assets/images/image02.jpg" alt="Atrior Morte">
+      <p>Atrior Morte is a project that originated from @Artseb. It is supposed to be a story game about a romanian detective that finds out about some dark secret their town has...</p>
+      <span class="status">Status: not released yet</span>
+      <div class="credits">
+        <strong>Credits:</strong> ArtSeb - VA, Programmer, Graphic design, Story, etc... | Encry - VA, Programmer, Builder | NowGoYou - VA | MrMouthless - Sound Designer
+      </div>
     </div>
-
-    <!-- About -->
-    <section class="section animate" id="about">
-      <h2>About Me</h2>
-      <p>I'm a bilingual student-developer focused on Roblox game development with Luau scripting. I specialize in NPC AI, quest systems, and UI design.</p>
-    </section>
-
-    <!-- Lost Signal -->
-    <section class="section animate" id="lost-signal">
-      <h2>Lost Signal</h2>
-      <h3>A Roblox survival-horror game built around immersive storytelling</h3>
-      <div class="project-tags">
-        <span class="tag">Roblox</span>
-        <span class="tag">Survival Horror</span>
-        <span class="tag">Multiplayer</span>
-        <span class="tag">Luau</span>
+    
+    <div class="project">
+      <h4>Refraction</h4>
+      <p>Refraction is a project owned by @Rabbitz, its a asymmetrical horror game, but with its own twist and quirks.</p>
+      <span class="status">Status: not released yet</span>
+      <div class="credits">
+        <strong>Credits:</strong> Rabbitz - Owner | ArtSeb - Programmer | Encry - Programmer | Brush - Animator | Anti - Map Maker | JustMary - Artist | Whadacc - VFX Artist
       </div>
-      <p>Explore a mysterious facility and piece together what happened, all while being hunted by gimmicky monsters. Collect lore fragments across layers of increasing difficulty and uncover the truth behind the evil company pulling the strings.</p>
-      <div class="project-details">
-        <div class="detail-grid">
-          <div class="detail-item">
-            <div class="label">Players</div>
-            <div class="value">Up to 5 (12 in events)</div>
-          </div>
-          <div class="detail-item">
-            <div class="label">Normal Mode Layers</div>
-            <div class="value">80 Layers</div>
-          </div>
-          <div class="detail-item">
-            <div class="label">Gamemodes</div>
-            <div class="value">Easy / Normal / Hard / Endless</div>
-          </div>
-          <div class="detail-item">
-            <div class="label">Max Monsters</div>
-            <div class="value">8 per layer</div>
-          </div>
-        </div>
+    </div>
+    
+    <div class="project">
+      <h4>Lost Signal</h4>
+      <p>Your objective is to obtain lore about what happened in the whole place. You can party up with up to 4 other players (12 events only). You enter a tube like system, this usually happens inside a facility, the tubes lead you to the main game after a selection menu and more. Once in the game your objective is to collect info from different places while being pursued by monsters.</p>
+      <span class="status">Status: not released yet</span>
+      <div class="credits">
+        <strong>Credits:</strong> Encry (everything)
       </div>
-      <div class="section-btn-row">
-        <a href="https://www.roblox.com/games/your-link" class="btn" target="_blank">Play Lost Signal</a>
+    </div>
+    
+    <!-- Applications -->
+    <h3>Applications</h3>
+    
+    <div class="project">
+      <h4>LumiChat</h4>
+      <img src="assets/images/image03.jpg" alt="LumiChat">
+      <p>LumiChat is a privacy-focused chat app that combines the best of peer‑to‑peer messaging with lightweight cloud services for authentication and temporary attachment hosting. Your conversations stay between you and your friends, we never store your messages.</p>
+      <span class="status">Status: not released yet</span>
+      <div class="credits">
+        <strong>Credits:</strong> Encry, Artseb
       </div>
-    </section>
-
-    <!-- Lumi Chat -->
-    <section class="section animate" id="lumi-chat">
-      <h2>Lumi Chat</h2>
-      <h3>An open-source, privacy-first chat application</h3>
-      <div class="project-tags">
-        <span class="tag">Open Source</span>
-        <span class="tag">Tauri</span>
-        <span class="tag">Rust</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">Privacy</span>
-      </div>
-      <p>A Discord alternative built from the ground up with privacy in mind. No servers, no spyware - only direct client-to-client connections. Sync your data with Google Drive or similar services to make losing it nearly impossible.</p>
-      <div class="project-details">
-        <div class="detail-grid">
-          <div class="detail-item">
-            <div class="label">Backend</div>
-            <div class="value">Rust + Tauri</div>
-          </div>
-          <div class="detail-item">
-            <div class="label">Package Manager</div>
-            <div class="value">Bun</div>
-          </div>
-          <div class="detail-item">
-            <div class="label">Architecture</div>
-            <div class="value">Client-to-Client</div>
-          </div>
-          <div class="detail-item">
-            <div class="label">License</div>
-            <div class="value">Open Source</div>
-          </div>
-        </div>
-      </div>
-      <div class="section-btn-row">
-        <a href="https://www.roblox.com/games/your-link" class="btn" target="_blank">Explore Lumi Chat</a>
-      </div>
-    </section>
-
+    </div>
+    
     <!-- Contact -->
-    <section class="section animate" id="contact">
-      <h2>Contact Me</h2>
-      <div class="contact-grid">
-        <a href="https://x.com/encry0" class="btn btn-secondary" target="_blank">Twitter / X</a>
-        <a href="https://www.youtube.com/@encry0" class="btn btn-secondary" target="_blank">YouTube</a>
-        <a href="https://www.roblox.com/users/489069227/profile" class="btn btn-secondary" target="_blank">Roblox</a>
-        <button class="btn btn-secondary" onclick="openDiscord()">Discord</button>
-      </div>
-    </section>
-  </div>
-
-  <!-- Discord Modal -->
-  <div class="modal" id="discordModal" onclick="closeModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <h2>Connect on Discord</h2>
-      <p style="color: var(--text-muted); margin-top: 10px;">Click to copy the invite link:</p>
-      <input type="text" value="discord.gg/profile/489069227505090576" readonly onclick="copyInvite(this)">
+    <h2>Contact me!</h2>
+    <div class="contact-grid">
+      <a href="https://x.com/encry0" class="contact-btn" target="_blank">Twitter / X</a>
+      <a href="https://www.youtube.com/@encry0" class="contact-btn" target="_blank">YouTube</a>
+      <a href="https://www.roblox.com/users/489069227/profile" class="contact-btn" target="_blank">Roblox</a>
+      <a href="https://discord.gg/profile/489069227505090576" class="contact-btn" target="_blank">Discord</a>
+      <a href="https://github.com/EncryX" class="contact-btn" target="_blank">GitHub</a>
+      <a href="mailto:contact@encry.dev" class="contact-btn" target="_blank">Email</a>
     </div>
   </div>
-
-  <script>
-    function openDiscord() { document.getElementById('discordModal').classList.add('active'); }
-    function closeModal(e) { document.getElementById('discordModal').classList.remove('active'); }
-    function copyInvite(input) { input.select(); document.execCommand('copy'); alert('Invite link copied to clipboard!'); }
-  </script>
 </body>
 </html>
