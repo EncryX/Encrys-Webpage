@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-:root {
+:root { 
   --bg: #050505;
   --bg-checker: #0f0f0f;
   --accent: #ffffff;
