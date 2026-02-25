@@ -17,7 +17,7 @@
   --border: rgba(124, 92, 191, 0.25);
   --card-bg: rgba(20, 20, 35, 0.85);
   --radius: 12px;
-  --font: 'Segoe UI', system-ui, sans-serif;
+    --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
